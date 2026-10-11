@@ -1,0 +1,168 @@
+/* Center everything */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+/* Header */
+header h1 {
+    margin-top: 20px;
+}
+
+/* Navigation buttons */
+nav {
+    margin: 20px 0;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #555;
+}
+
+/* Generic button */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background-color: #666;
+}
+
+/* Centered sections */
+section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.collection-card,
+.product {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 15px auto;
+    width: 70%;
+    border-radius: 10px;
+    background-green: rgb(255, 255, 255);
+}
+.logo {
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 240px; /* twice as big */
+}
+
+body {
+    background: url("background.png") no-repeat center center fixed;
+    background-size: cover;
+}
+body {
+    color: whitesmoke;
+}
+.undead-garden {
+    background-image: url("UGbackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.crypt-critters {
+    background-image: url("CCbackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.haunted-hearth {
+    background-image: url("HHbackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.whimsical-wares {
+    background-image: url("WWbackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.product {
+    width: 300px;      /* or whatever size you want */
+    height: 300px;
+    overflow: hidden;
+}
+
+.product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.product {
+    height: 300px;        /* or whatever height you want */
+    overflow-y: auto;     /* enables vertical scrolling */
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+.cauldron-page {
+  background-image: url("CauldronBackground.png");
+  background-size: cover;
+  background-position: center;
+  color: #f5e6d0;
+  font-family: 'Cinzel', serif;
+}
+
+.cart {
+  max-width: 800px;
+  margin: 60px auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+}
+
+.cart-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 140, 0, 0.3);
+  padding-bottom: 10px;
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.remove-btn, .checkout-btn {
+  background-color: #ff8c00;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover, .checkout-btn:hover {
+  background-color: #ffa733;
+}
