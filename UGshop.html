@@ -16,28 +16,45 @@
         <a class="nav-btn" href="index.html">Home</a>
         <a class="nav-btn" href="shop.html">All Shop</a>
         <a class="nav-btn" href="UGlore.html">Lore</a>
+        <a class="nav-btn" href="cauldron.html">Cauldron</a>
     </nav>
 </header>
 
 
-<section class="products">
+<section class="products shop-container">
     <h2>Zombie Gnomes & Cursed Planters</h2>
 
-    <div class="product">
-        <h3>Gnawbert the Gardener</h3>
-        <img src="Gnawbert.png" alt="Gnawbert">
-        <p>plush gnome with shovel and glowing eye.</p>
-        <a class="price-link" href="cauldron.html">$29.00</a>
+     <div class="product">
+    <h3>Gnawbert</h3>
+   <img src="Gnawbert.png"
+     alt="Gnawbert"
+     class="character-image"
+     onclick="openModal('GnawbertsTurnaround.png')">
 
-    </div>
+    <span>$29.00</span>
 
-    <div class="product">
-        <h3>Mossy Mort</h3>
-          <img src="MossyMort.png" alt="Mossy Mort">
-        <p>Moss‑patched beard and earthy charm.</p>
-        <span>$29.00</span>
-    </div>
+    <button id="Gnawbert">Add to Cauldron</button>
+</div>
+
+     <div class="product">
+    <h3>Mossy Mort</h3>
+    <img src="MossyMort.png"
+     alt="Mossy Mort"
+     class="character-image"
+     onclick="openModal('MossyMortsTurnaround.png')">
+    <span>$29.00</span>
+
+    <button id="Mossy-Mort">Add to Cauldron</button>
+</div>
+
 </section>
+
+<script src="UGshop.js"></script>
+
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" class="modal-content">
+</div>
 
 </body>
 </html>

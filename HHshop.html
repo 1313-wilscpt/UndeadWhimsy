@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Haunted Hearth – Shop</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="HHshop.js"></script>
 </head>
 <body class="shop-page haunted-hearth">
 
@@ -13,22 +14,32 @@
         <a class="nav-btn" href="index.html">Home</a>
         <a class="nav-btn" href="shop.html">All Shop</a>
         <a class="nav-btn" href="UGlore.html">Lore</a>
+        <a class="nav-btn" href="cauldron.html">Cauldron</a>
     </nav>
 </header>
 
 
-<section class="products">
+<section class="products shop-container">
     <h2>Plush Ghosts & Stitched Pumpkins</h2>
 
-  <div class="product">
-        <h3>Patches</h3>
-        <img src="Patches.png" alt="Patches">
-        <p>Keeper of the Hearth‑light</p>
-        <span>$29.00</span>
-    </div>
+   <div class="product">
+    <h3>Patches</h3>
+   <img src="Patches.png"
+     alt="Mossy Mort"
+     class="character-image"
+     onclick="openModal('PatchesTurnaround.png')">
+    <span>$29.00</span>
+
+    <button id="Patches-btn">Add to Cauldron</button>
+</div>
 
 
 </section>
+
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" class="modal-content">
+</div>
 
 </body>
 </html>

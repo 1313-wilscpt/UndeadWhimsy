@@ -21,12 +21,15 @@
 </header>
 
 
-<section class="products">
+<section class="products shop-container">
     <h2>Zombie Gnomes & Plush Resurrection Critters </h2>
 
       <div class="product">
     <h3>Lantern Len</h3>
-    <img src="LanternLen.png" alt="LanternLen">
+    <img src="LanternLen.png"
+     alt="Len"
+     class="character-image"
+     onclick="openModal('LanternLensTurnaround.png')">
     <p>Keeper of the grave-light with glowing lantern.</p>
     <span>$29.00</span>
 
@@ -35,7 +38,10 @@
 
     <div class="product">
     <h3>Rotty Rue</h3>
-    <img src="RottyRue.png" alt="Rotty">
+   <img src="RottyRue.png"
+     alt="Rue"
+     class="character-image"
+     onclick="openModal('RottyRuesTurnaround.png')">
     <p>Stitched grin and torn hat.</p>
     <span>$29.00</span>
 
@@ -61,5 +67,11 @@
 </div>
 </section>
 
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" class="modal-content">
+</div>
+
 </body>
 </html>
+ 

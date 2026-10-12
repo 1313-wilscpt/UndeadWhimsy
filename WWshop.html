@@ -9,14 +9,15 @@
 
 <header>
     <h1>✨ Whimsy Wares</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="shop.html">All Shop</a>
-        <a href="lore.html">Lore</a>
+       <nav>
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="shop.html">All Shop</a>
+        <a class="nav-btn" href="UGlore.html">Lore</a>
+        <a class="nav-btn" href="cauldron.html">Cauldron</a>
     </nav>
 </header>
 
-<section class="products">
+<section class="products shop-container">
     <h2>Enchanted Trinkets & Curious Charms</h2>
 
     <div class="product">
@@ -31,16 +32,24 @@
         <span>$18.00</span>
     </div>
 
-    <div class="product">
-        <h3>Pocket Poltergeist</h3>
-        <p>Mini plush ghost that squeaks when squeezed.</p>
-        <span>$9.00</span>
+   <div class="product">
+    <h3>Pocket Poltergeist</h3>
+   <img src="PocketPoltergeist.png"
+     alt="Pocket"
+     class="character-image"
+     onclick="openModal('PoltersTurnaround.png')">
+
+    <span>$15.00</span>
+
+   <button id="Pocket">Add to Cauldron</button>
     </div>
 </section>
 
-<section class="products">
-    <h2>Keychains</h2>
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" class="modal-content">
+</div>
 
-    <div class="product">
-        <h3>Undead Whimsy Logo Keychain</h3>
-        <p>Glossy acrylic charm featuring the official Undead Whimsy emblem
+<script src="WWshop.js"></script>
+</body>
+</html>
