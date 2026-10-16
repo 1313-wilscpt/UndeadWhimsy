@@ -5,97 +5,126 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let cauldron = JSON.parse(localStorage.getItem("cauldron")) || [];
 
-    cartItems.innerHTML = "";
+    function renderCauldron() {
+        cartItems.innerHTML = "";
 
-    let total = 0;
+        let total = 0;
+        const groupedItems = {};
 
-    const groupedItems = {};
+        cauldron.forEach(item => {
+            const price = Number(String(item.price).replace("$", ""));
 
-    cauldron.forEach(item => {
-        total += Number(item.price);
+            total += price;
 
-        if (!groupedItems[item.name]) {
-            groupedItems[item.name] = {
-                ...item,
-                quantity: 1
-            };
-        } else {
-            groupedItems[item.name].quantity++;
-        }
-    });
+            if (!groupedItems[item.name]) {
+                groupedItems[item.name] = {
+                    ...item,
+                    price: price,
+                    quantity: 1
+                };
+            } else {
+                groupedItems[item.name].quantity++;
+            }
+        });
 
-    Object.values(groupedItems).forEach(item => {
-        cartItems.innerHTML += `
-            <div class="cart-item">
-                 <img src="${item.image}" alt="${item.name}"></img>
+        Object.values(groupedItems).forEach(item => {
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    ${
+                        item.image
+                            ? `<img src="${item.image}" alt="${item.name}">`
+                            : ""
+                    }
 
-                <div class="details">
-                    <h3>${item.name}</h3>
-                    <span>$${item.price.toFixed(2)}</span>
+                    <div class="details">
+                        <h3>${item.name}</h3>
+                        <span>$${item.price.toFixed(2)}</span>
 
-                    <div class="quantity-controls">
-                        <button class="minus-btn" data-name="${item.name}">−</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="plus-btn" data-name="${item.name}">+</button>
+                        <div class="quantity-controls">
+                            <button class="minus-btn" data-name="${item.name}">−</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="plus-btn" data-name="${item.name}">+</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
 
-    document.getElementById("total-price").textContent =
-        total.toFixed(2);
+        const totalElement = document.getElementById("total-price");
+        if (totalElement) {
+            totalElement.textContent = total.toFixed(2);
+        }
 
-    document.querySelectorAll(".plus-btn").forEach(button => {
-        button.addEventListener("click", () => {
-            const itemName = button.dataset.name;
+        document.querySelectorAll(".plus-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                const itemName = button.dataset.name;
 
-            const groupedItem = Object.values(groupedItems).find(
-                item => item.name === itemName
-            );
-
-            if (groupedItem) {
-                cauldron.push({
-                    name: groupedItem.name,
-                    price: groupedItem.price,
-                    image: groupedItem.image
-                });
-
-                localStorage.setItem(
-                    "cauldron",
-                    JSON.stringify(cauldron)
+                const groupedItem = Object.values(groupedItems).find(
+                    item => item.name === itemName
                 );
 
-                location.reload();
-            }
+                if (groupedItem) {
+                    cauldron.push({
+                        name: groupedItem.name,
+                        price: groupedItem.price,
+                        image: groupedItem.image
+                    });
+
+                    localStorage.setItem(
+                        "cauldron",
+                        JSON.stringify(cauldron)
+                    );
+
+                    renderCauldron();
+                }
+            });
         });
-    });
 
-    document.querySelectorAll(".minus-btn").forEach(button => {
-        button.addEventListener("click", () => {
-            const itemName = button.dataset.name;
+        document.querySelectorAll(".minus-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                const itemName = button.dataset.name;
 
-            const index = cauldron.findIndex(
-                item => item.name === itemName
-            );
-
-            if (index !== -1) {
-                cauldron.splice(index, 1);
-
-                localStorage.setItem(
-                    "cauldron",
-                    JSON.stringify(cauldron)
+                const index = cauldron.findIndex(
+                    item => item.name === itemName
                 );
 
-                location.reload();
-            }
+                if (index !== -1) {
+                    cauldron.splice(index, 1);
+
+                    localStorage.setItem(
+                        "cauldron",
+                        JSON.stringify(cauldron)
+                    );
+
+                    renderCauldron();
+                }
+            });
         });
-    });
+    }
 
-    const clearBtn = document.getElementById("clear-cauldron-btn");
+    renderCauldron();
 
-    clearBtn.addEventListener("click", () => {
+    const clearButton = document.getElementById("clear-cauldron-btn");
+
+if (clearButton) {
+    clearButton.addEventListener("click", () => {
         localStorage.removeItem("cauldron");
-        location.reload();
+        cauldron = [];
+        renderCauldron();
     });
+}
+
+const conjureBtn = document.getElementById("conjureBtn");
+
+if (conjureBtn) {
+    conjureBtn.addEventListener("click", () => {
+        if (cauldron.length === 0) {
+            alert("Your Cauldron is empty!");
+            return;
+        }
+
+
+        window.location.href = "conjuration.html";
+    });
+}
 });

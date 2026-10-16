@@ -13,6 +13,7 @@
         <a class="nav-btn" href="index.html">Home</a>
         <a class="nav-btn" href="shop.html">All Shop</a>
         <a class="nav-btn" href="UGlore.html">Lore</a>
+        <a class="nav-btn" href="cauldron.html">Cauldron</a>
     </nav>
 </header>
 
@@ -21,47 +22,94 @@
 
          <div class="product">
     <h3>Gnawbert</h3>
-    <img src="Gnawbert.png" alt="Gnawbert">
+   <img src="Gnawbert.png"
+     alt="Gnawbert"
+     class="character-image"
+     onclick="openModal('GnawbertsTurnaround.png')">
+
     <span>$29.00</span>
 
     <button id="Gnawbert">Add to Cauldron</button>
 </div>
 
-     <div class="product">
+    <div class="product">
     <h3>Mossy Mort</h3>
-    <img src="MossyMort.png" alt="Mort">
+    <img src="MossyMort.png"
+     alt="Mossy Mort"
+     class="character-image"
+     onclick="openModal('MossyMortsTurnaround.png')">
     <span>$29.00</span>
 
     <button id="Mossy-Mort">Add to Cauldron</button>
 </div>
-   <div class="product">
+
+  <div class="product">
+    <h3>Chomper Chuck</h3>
+    <img src="ChomperChuck.png"
+     alt="Chuck"
+     class="character-image"
+     onclick="openModal('ChucksTurnaround.png')">
+    <span>$29.00</span>
+
+    <button id="Chomper-Chuck">Add to Cauldron</button>
+</div>
+
+    <div class="product">
+    <h3>Pocket Poltergeist</h3>
+   <img src="PocketPoltergeist.png"
+     alt="Pocket"
+     class="character-image"
+     onclick="openModal('PoltersTurnaround.png')">
+
+    <span>$15.00</span>
+
+   <button id="Pocket">Add to Cauldron</button>
+    </div>
+
+    <div class="product">
+    <h3>Patches</h3>
+   <img src="Patches.png"
+     alt="Patches"
+     class="character-image"
+     onclick="openModal('PatchesTurnaround.png')">
+    <span>$29.00</span>
+
+    <button id="Patches-btn">Add to Cauldron</button>
+</div>
+
+  <div class="product">
     <h3>Lantern Len</h3>
-    <img src="LanternLen.png" alt="LanternLen">
+    <img src="LanternLen.png"
+     alt="Len"
+     class="character-image"
+     onclick="openModal('LanternLensTurnaround.png')">
     <p>Keeper of the grave-light with glowing lantern.</p>
     <span>$29.00</span>
 
     <button id="lantern-len-btn">Add to Cauldron</button>
 </div>
 
-    <div class="product">
-        <h3>Chomper Chuck</h3>
-        <p>Jagged plush teeth and blood‑stained beard.</p>
-        <span>$29.00</span>
-    </div>
-
-    <div class="product">
+  <div class="product">
     <h3>Rotty Rue</h3>
-    <img src="RottyRue.png" alt="Rotty">
+   <img src="RottyRue.png"
+     alt="Rue"
+     class="character-image"
+     onclick="openModal('RottyRuesTurnaround.png')">
     <p>Stitched grin and torn hat.</p>
     <span>$29.00</span>
 
     <button id="rotty-rue-btn">Add to Cauldron</button>
 </div>
+
 </section>
 
 <footer>
     <p>Coven: 0 items</p>
 </footer>
-
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" class="modal-content">
+</div>
+<script src="shop.js"></script>
 </body>
 </html>

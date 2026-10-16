@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undead Whimsy Admin</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1c1c1c;
+            color: white;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #7aff7a;
+        }
+
+        .order {
+            background: #2c2c2c;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .order h2 {
+            margin-top: 0;
+            color: gold;
+        }
+
+        .item {
+            margin-left: 20px;
+            padding: 5px 0;
+        }
+
+        button {
+            background: #7aff7a;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Undead Whimsy Admin Dashboard</h1>
+
+    <button onclick="loadOrders()">Refresh Orders</button>
+
+    <div id="ordersContainer"></div>
+
+    <script>
+
+        async function loadOrders() {
+
+            const container =
+                document.getElementById("ordersContainer");
+
+            container.innerHTML = "Loading Orders...";
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:3000/api/orders"
+                );
+
+                const orders = await response.json();
+
+                container.innerHTML = "";
+
+                if (orders.length === 0) {
+
+                    container.innerHTML =
+                        "<p>No orders found.</p>";
+
+                    return;
+                }
+
+                orders.forEach(order => {
+
+                    const div =
+                        document.createElement("div");
+
+                    div.className = "order";
+
+                    let itemsHTML = "";
+
+                    order.items.forEach(item => {
+
+                        itemsHTML += `
+                            <div class="item">
+                                ${item.name || "Item"}
+                                <br>
+                                Qty: ${item.quantity || 1}
+                            </div>
+                        `;
+                    });
+
+                    div.innerHTML = `
+                        <h2>Order #${order.id}</h2>
+
+                        <p><strong>Name:</strong>
+                        ${order.name}</p>
+
+                        <p><strong>Email:</strong>
+                        ${order.email}</p>
+
+                        <p><strong>Address:</strong>
+                        ${order.address}</p>
+
+                        <p><strong>Date:</strong>
+                        ${order.created_at}</p>
+
+                        <hr>
+
+                        ${itemsHTML}
+                    `;
+
+                    container.appendChild(div);
+
+                });
+
+            } catch (error) {
+
+                console.error(error);
+
+                container.innerHTML =
+                    "<p>Failed to load orders.</p>";
+            }
+        }
+
+        loadOrders();
+
+    </script>
+
+</body>
+</html>

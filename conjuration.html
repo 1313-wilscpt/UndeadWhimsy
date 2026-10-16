@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undead Whimsy - Conjuration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="shop-page Conjuration-page">
+
+    <header>
+        <h1>Review Your Conjuration</h1>
+    </header>
+
+    <main>
+       <div id="conjurationItems" class="shop-container"></div>
+
+       <div id="conjurationTotal" class="grand-total">
+    <h2>Grand Total: <span id="totalAmount">$0.00</span></h2>
+</div>
+
+
+<!-- Shipping Information -->
+<section class="shipping-info">
+    <h2>Shipping Information</h2>
+
+    <label for="shipName">Full Name</label>
+    <input type="text" id="shipName" required>
+
+    <label for="shipAddress">Address</label>
+    <input type="text" id="shipAddress" required>
+
+    <label for="shipCity">City</label>
+    <input type="text" id="shipCity" required>
+
+    <label for="shipState">State</label>
+    <input type="text" id="shipState" required>
+
+    <label for="shipZip">ZIP Code</label>
+    <input type="text" id="shipZip" required>
+
+    <label for="shipEmail">Email</label>
+    <input type="email" id="shipEmail" required>
+</section>
+<section class="payment-info">
+    <h2>Payment Information</h2>
+
+    <label for="cardName">Name on Card</label>
+    <input type="text" id="cardName" required>
+
+    <label for="cardNumber">Card Number</label>
+    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+
+    <label for="expDate">Expiration Date</label>
+    <input type="month" id="expDate" required>
+
+    <label for="cvv">CVV</label>
+    <input type="text" id="cvv" maxlength="4" required>
+</section>
+
+<button id="confirmConjuration" class="magic-choice">
+    ✨ Complete the Ritual
+</button>
+
+
+
+<button class="magic-choice"
+        onclick="window.location.href='WWshop.html'">
+    🧪 Gather More Curiosities
+</button>
+</div>
+    </main>
+
+    <script src="conjuration.js"></script>
+
+</body>
+</html>

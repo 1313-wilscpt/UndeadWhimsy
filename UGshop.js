@@ -27,6 +27,20 @@ document.getElementById("Mossy-Mort").addEventListener("click", function () {
 
     alert("Mossy Mort added to the Cauldron!");
 });
+document.getElementById("Chomper-Chuck").addEventListener("click", function () {
+
+    let cauldron = JSON.parse(localStorage.getItem("cauldron")) || [];
+
+    cauldron.push({
+        name: "Chomper Chuck",
+        price: 29.00,
+         image: "ChomperChuck.png"
+    });
+
+    localStorage.setItem("cauldron", JSON.stringify(cauldron));
+
+    alert("Chomper Chuck added to the Cauldron!");
+});
 function openModal(imageSrc) {
     document.getElementById("imageModal").style.display = "block";
     document.getElementById("modalImage").src = imageSrc;
